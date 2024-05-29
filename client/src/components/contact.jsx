@@ -21,7 +21,7 @@ export default function Example() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3001/api/portfolioEmail', formData)
+      await axios.post('https://api-portfolio.gounevps.com/api/portfolioEmail', formData)
         .then(res => {
           console.log(res);
           // Réinitialiser le formulaire après un envoi réussi
