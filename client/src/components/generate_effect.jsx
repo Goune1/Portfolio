@@ -27,7 +27,7 @@ import { cn } from "../utils/cn";
       {wordsArray.map((word, idx) => (
         <motion.span
           key={word + idx}
-          className="dark:text-white text-black opacity-0"
+          className="text-white opacity-0"
         >
           {word}{" "}
         </motion.span>
