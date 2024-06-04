@@ -47,6 +47,35 @@ app.post('/api/portfolioEmail', async (req, res) => {
     })
 })
 
+app.post('/api/macouEmail', async (req, res) => {
+    const data = req.body
+    console.log(data)
+
+    const transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'goune.ledreo@gmail.com', // Adresse e-mail Gmail
+            pass: 'ytij ijwl esem odwy ' // Mot de passe Gmail
+        }
+    });
+    
+    // Options du mail
+    const mailOptions = {
+        from: data.email,
+        to: 'ccdelmon@orange.fr',
+        subject: "Nouveau message venant du site de Macou",
+        text: `Monsieur/Madame ${data.firstName} ${data.lastName} vivant ${data.country} nous a contacté.\nSon adresse mail est : ${data.email} et son numéro de téléphone : ${data.phoneNumber}\nVoici son message :\n${data.message}`,
+    };
+    
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log('Erreur lors de l\'envoi de l\'e-mail :', error);
+        } else {
+            res.status(200).json({ message: "Correctly sent" });
+        }
+    })
+})
+
 
 
 // CONNEXION AU SERVEUR
