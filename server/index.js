@@ -62,7 +62,7 @@ app.post('/api/macouEmail', async (req, res) => {
     // Options du mail
     const mailOptions = {
         from: data.email,
-        to: 'ccdelmon@orange.fr',
+        to: 'gael.ledreo@gmail.com',
         subject: "Nouveau message venant du site de Macou",
         text: `Monsieur/Madame ${data.firstName} ${data.lastName} vivant ${data.country} nous a contacté.\nSon adresse mail est : ${data.email} et son numéro de téléphone : ${data.phoneNumber}\nVoici son message :\n${data.message}`,
     };
